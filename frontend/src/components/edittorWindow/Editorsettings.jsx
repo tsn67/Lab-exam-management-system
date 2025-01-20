@@ -32,8 +32,8 @@ const Editorsettings = () => {
         };
     }, []);
 
-    var themes = ['leet-code', 'atom-one-dark']
-    var fontSizes = ['14', '15' ,'16', '17', '18', '19'];
+    var themes = ['leet-code', 'atom-one-dark', 'leet-code-light'];
+    var fontSizes = ['14', '15' ,'16', '17', '18', '19', '20', '21'];
 
     const dispatch = useDispatch();
     
@@ -74,6 +74,7 @@ const Editorsettings = () => {
                                 <div className='w-[100%] p-[4px] outline outline-1 outline-textGray'>
                                     {themes[theme] == 'leet-code' && <img src={leetCodeImage}></img>}
                                     {themes[theme] == 'atom-one-dark' && <img src={atomImage}></img>}
+                                    
                                 </div>
                             </div>}
 

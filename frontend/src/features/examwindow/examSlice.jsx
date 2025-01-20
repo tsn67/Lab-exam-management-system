@@ -84,10 +84,21 @@ const examDetailsReducer = createSlice({
 
             // Update the selected language index
             selectedQuestion.selected = language;
+        }, addResult(state, actions) {
+
+            const stdErr = actions.payload.stdErr || [];
+            const stdOut = actions.payload.stdOut || [];
+            const selectedQuestion = state.questions[state.selected];
+
+            selectedQuestion.testResult = {
+                stdErr: stdErr,
+                stdOut: stdOut
+            }
+
         }
             
     }
 });
 
 export default examDetailsReducer.reducer;
-export const {initialize, setSelected, updateCode, updateSelectedLang} = examDetailsReducer.actions;
+export const {initialize, setSelected, updateCode, updateSelectedLang, addResult} = examDetailsReducer.actions;

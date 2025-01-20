@@ -20,8 +20,8 @@ function TestResult({results, expectedResults}) {
   return (
     <div className=" ml-3 pr-8 mt-1  max-h-[250px] overflow-y-scroll  scroller">
       <main className=" flex flex-col gap-5 mb-6">
-        {results?.length > 0 ? (
-          results.map((item) => {
+        {results? (results.stdErr.length >= 200?(
+          results.stdOut.map((item) => {
             const expect_item_result = expectedResults.find(
               (thing) => thing.caseId === item.caseId
             ).result;
@@ -46,7 +46,9 @@ function TestResult({results, expectedResults}) {
               </section>
             );
           })
-        ) : (
+        ): <p className="text-textRed ">
+          Oops something went wrong! check output tab
+        </p>) : (
           <RunTheCode />
         )}
       </main>
