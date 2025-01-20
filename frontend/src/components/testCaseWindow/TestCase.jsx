@@ -34,10 +34,10 @@ function TestCase({testCases}) {
           //console.log(selected);
           if(i == selected) {
             
-            return <>
+            return <div key={item}>
               <div
                   className=" flex flex-col gap-2 text-slate-300   w-[90%]"
-                  key={nanoid()}
+                
               >
                   <p className="text-textGray">{"input ="}</p>
                   <p className="bg-secondaryGray py-1 px-5 rounded-[4px] text-white font-bold">{item.input[index]}</p>
@@ -45,12 +45,11 @@ function TestCase({testCases}) {
 
               <div
                   className=" flex flex-col gap-2 text-slate-300   w-[90%]"
-                  key={nanoid()}
                   >
                   <p className="text-textGray">{"output ="}</p>
                   <p className="bg-secondaryGray py-1 px-5 rounded-[4px] text-white font-bold">{item.output[index]}</p>
               </div>        
-          </>
+          </div>
           }
 
         })}
