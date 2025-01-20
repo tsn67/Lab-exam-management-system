@@ -46,7 +46,7 @@ const Codeeditor = ({disabled, languages, runAction, language, defaultCode, temp
 
         const fileNames = new Map();
         fileNames.set('java', 'Main.java');
-        fileNames.set('python', 'main.py');
+        fileNames.set('python', 'Main.py');
         fileNames.set('c', 'main.c');
         fileNames.set('csharp', 'Main.cs');
         fileNames.set('javascript', 'index.js');
