@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit'
 import {editorSettingsReducer} from '../features/editor/SettingsSlice'; 
 import examReducer from '../features/examwindow/examSlice';
-import codeReducer from '../features/coderun/codeRunSlice';
+import codeReducer from '../features/coderun/codeRunSlice'
 
 const store = configureStore({
     reducer: {
