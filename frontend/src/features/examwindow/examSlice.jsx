@@ -19,6 +19,8 @@ const initialState = {
                     output: [,]
                 },
                 testResult: {
+                    stdErr:[],
+                    stdOut:[]
                 }
             }, 
             
@@ -75,7 +77,9 @@ const examDetailsReducer = createSlice({
                 value, // New code value
                 ...selectedQuestion.codeValues.slice(languageIndex + 1),
             ];
-        }, updateSelectedLang(state, actions) {
+        }, 
+        
+        updateSelectedLang(state, actions) {
             // Find the currently selected question
             const language = actions.payload;
             
