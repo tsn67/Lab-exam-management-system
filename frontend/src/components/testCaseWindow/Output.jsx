@@ -3,7 +3,6 @@ import Editor from '@monaco-editor/react'
 import { useSelector } from 'react-redux'
 import { selectResult } from '../../redux/examSelector'
 
-
 function Output() {
 
   const results = useSelector(selectResult);

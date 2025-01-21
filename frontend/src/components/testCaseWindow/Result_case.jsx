@@ -12,7 +12,6 @@ import { selectResult } from "../../redux/examSelector";
 
 input sample format
 
-
 const cases = [
   {m: "2", n: "3", output: "6"},
   {enemyEngines: "[3,2,2]", currentEnergy: "4", output: "7"},
@@ -31,8 +30,6 @@ const expectedResults = [
   {caseId: 3, result: "null"},
 ];
  */
-
-
 
 
 function Result_case({ cases, expectedResults }) {
@@ -54,7 +51,7 @@ function Result_case({ cases, expectedResults }) {
         <div className="flex flex-col justify-center items-center">
         <div className="flex flex-row font-semibold">
           {text.split('').map((letter, index) => (
-            <motion.p className="text-buttonGreen2"
+            <motion.p className="text-textGreen"
               key={nanoid()}
               initial={{ opacity: 0 }}
               animate={{opacity: 1}}
