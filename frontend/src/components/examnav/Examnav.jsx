@@ -27,7 +27,9 @@ function Examnav({timeStart}) {
         <Timer expiryTimestamp={time} timeStart={timeStart} />
       </div>
 
-      <Button label='finish exam' buttonClass={' text-red-500 hover:text-red-400 bg-backgroundRed shadow-2xl shadow-amber'} />
+     
+      <Button label='finish exam' buttonClass={' text-white w-[150px] hover:text-red-400 bg-red-900'}/>
+
 
     </div>
   )

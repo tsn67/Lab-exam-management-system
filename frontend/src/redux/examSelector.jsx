@@ -28,3 +28,11 @@ export const selectInputs = createSelector(
         return questionData.testCases.input || [];
     }
 )
+
+export const selectResult = createSelector(
+    [questionData],
+    (questionData) => {
+        if(!questionData) return null;
+        return questionData.testResult;
+    }
+);  

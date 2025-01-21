@@ -89,7 +89,10 @@ function Examwindow({timeStart}) {
 
     const stopResizing = useCallback(() => {
         setIsHorizontalResizing(false);
-        setIsVerticalResizing(false);
+
+        setIsVerticalResizing(false);      
+    }, []);
+
 
     }, []);
 

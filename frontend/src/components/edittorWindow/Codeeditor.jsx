@@ -6,7 +6,7 @@ import Editor from '@monaco-editor/react'
 
 import Editorsettings from './Editorsettings';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateCode, updateSelectedLang } from '../../features/examwindow/examSlice';
+import { addResult, updateCode, updateSelectedLang } from '../../features/examwindow/examSlice';
 import { changeStatus } from '../../features/coderun/codeRunSlice';
 import { batchRun } from '../../utils/CodeRunner';
 import { selectCodeValues, selectInputs, selectSourceCode } from '../../redux/examSelector';
@@ -57,6 +57,10 @@ const Codeeditor = ({disabled, languages, runAction, language, defaultCode, temp
         //console.log(inputs);
         console.log(response);
         dispatch(changeStatus(false));
+        var stdErr  = [];
+        var stdOut = [];
+        response.map((item) => {stdErr.push(item.stderr); stdOut.push(item.stdout)})
+        dispatch(addResult({stdErr: stdErr, stdOut: stdOut}));
     }
 
     const createCustomTheme = (monaco) => {
@@ -132,33 +136,33 @@ const Codeeditor = ({disabled, languages, runAction, language, defaultCode, temp
             }
         });
 
-        monaco.editor.defineTheme('swalih-theme', {
-            base: 'vs-dark', 
+        monaco.editor.defineTheme('leet-code-light', {
+            base: 'vs', // Light base theme
             inherit: true,   
             rules: [
-                { token: 'comment', foreground: 'A3BE8C', fontStyle: 'italic' }, // Updated to a softer green
-                { token: 'keyword', foreground: '81A1C1' }, // Updated to a cooler blue
-                { token: 'string', foreground: 'EBCB8B' }, // Updated to a warmer orange
-                { token: 'number', foreground: 'B48EAD' }, // Updated to a lavender tone
-                { token: 'delimiter', foreground: 'ECEFF4' }, // Updated to off-white
-                { token: 'delimiter.bracket', foreground: 'ECEFF4' },
-                { token: 'delimiter.parenthesis', foreground: 'ECEFF4' },
-                { token: 'operator', foreground: 'D8DEE9' }, // Updated to light gray
-                { token: 'variable', foreground: '88C0D0' }, // Updated to cyan
-                { token: 'variable.predefined', foreground: '88C0D0' },
-                { token: 'function', foreground: '8FBCBB' }, // Updated to aquamarine
-                { token: 'method', foreground: '8FBCBB' },
+                { token: 'comment', foreground: '6A9955', fontStyle: 'italic' }, // Soft green for comments
+                { token: 'keyword', foreground: '0000FF' }, // Bright blue for keywords
+                { token: 'string', foreground: 'A31515' }, // Deep red for strings
+                { token: 'number', foreground: '09885A' }, // Greenish-blue for numbers
+                { token: 'delimiter', foreground: '000000' }, // Black for delimiters
+                { token: 'delimiter.bracket', foreground: '000000' },
+                { token: 'delimiter.parenthesis', foreground: '000000' },
+                { token: 'operator', foreground: '000000' }, // Black for operators
+                { token: 'variable', foreground: '267F99' }, // Blue-green for variables
+                { token: 'variable.predefined', foreground: '267F99' },
+                { token: 'function', foreground: '795E26' }, // Brown for functions
+                { token: 'method', foreground: '795E26' },
             ],
             colors: {
-                'editor.background': '#2E3440', // Updated to a darker gray-blue
-                'editor.foreground': '#D8DEE9', // Updated to light gray
-                'editorLineNumber.foreground': '#4C566A', // Updated to a muted gray
-                'editorLineNumber.activeForeground': '#ECEFF4', // Updated to off-white
-                'editor.selectionBackground': '#3B4252', // Updated to a dark blue-gray
-                'editor.lineHighlightBackground': '#434C5E', // Updated to a muted blue-gray
-                'editorCursor.foreground': '#88C0D0', // Updated to cyan
-                'editorWhitespace.foreground': '#3B4252', // Updated to dark blue-gray
-                'editorGutter.background': '#2E3440', // Matches updated editor background
+                'editor.background': '#FFFFFF', // White background
+                'editor.foreground': '#000000', // Black text
+                'editorLineNumber.foreground': '#BFBFBF', // Light gray for line numbers
+                'editorLineNumber.activeForeground': '#000000', // Black for active line number
+                'editor.selectionBackground': '#ADD6FF', // Light blue for selection
+                'editor.lineHighlightBackground': '#F3F3F3', // Light gray for line highlight
+                'editorCursor.foreground': '#000000', // Black cursor
+                'editorWhitespace.foreground': '#D3D3D3', // Light gray for whitespace
+                'editorGutter.background': '#FFFFFF', // White gutter background
             }
         });
     };

@@ -7,11 +7,10 @@ import Button from '../Button';
 import Output from "./Output";
 import { useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
-
+import { selectResult } from "../../redux/examSelector";
 /*
 
 input sample format
-
 
 const cases = [
   {m: "2", n: "3", output: "6"},
@@ -33,9 +32,7 @@ const expectedResults = [
  */
 
 
-
-
-function Result_case({ cases, results, expectedResults }) {
+function Result_case({ cases, expectedResults }) {
   const [optionToggle, setToggle] = useState("case");
 
   const isRunning = useSelector((state) => state['code-run'].isRunning);
@@ -46,15 +43,15 @@ function Result_case({ cases, results, expectedResults }) {
     visible: { opacity: [1, 0.4, 1], transition: { duration: 1,repeat: Infinity } },
   };
 
+  const results = useSelector(selectResult);
   
-
   if(isRunning) return <>
     <div className="relative bg-darkGray h-[100%] flex flex-col px-[5px] items-center rounded-sm gap-2">
       <div  className="z-10 absolute h-full w-full grid place-content-center">
         <div className="flex flex-col justify-center items-center">
         <div className="flex flex-row font-semibold">
           {text.split('').map((letter, index) => (
-            <motion.p className="text-buttonGreen2"
+            <motion.p className="text-textGreen"
               key={nanoid()}
               initial={{ opacity: 0 }}
               animate={{opacity: 1}}
