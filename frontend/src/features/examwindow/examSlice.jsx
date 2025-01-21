@@ -31,7 +31,8 @@ const initialState = {
         */
     ],
     selected: 0 //i number value eg. 0 1 2 (representing question of selection)
-    ,initialized: false
+    ,initialized: false,
+    proposedTime:0
 }
 
 
@@ -39,10 +40,11 @@ const examDetailsReducer = createSlice({
     name: 'exam-data',
     initialState,
     reducers: {
-        initialize(state, acitons) {
-            state.questions = acitons.payload.questionDetails,
-            state.selected = acitons.payload.selected
-            state.initialized = true;           
+        initialize(state, actions) {
+            state.questions = actions.payload.questionDetails,
+            state.selected = actions.payload.selected
+            state.initialized = true;      
+            state.proposedTime = actions.payload.proposedTime     
         },
         setSelected(state, acitons) {
             state.selected = acitons.payload;
