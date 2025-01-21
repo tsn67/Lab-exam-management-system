@@ -14,7 +14,7 @@ const Dropdown = ({ initial, items, selected, disabled, extraStyles, action }) =
     const [selectedItem, setSelectedItem] = useState(selected ? selected : initial);
     const [isOpen, setOpen] = useState(false);
     const dropdownRef = useRef(null);
-
+    
 
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {

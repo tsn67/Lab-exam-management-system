@@ -85,8 +85,7 @@ function Examwindow() {
 
     const stopResizing = useCallback(() => {
         setIsHorizontalResizing(false);
-        setIsVerticalResizing(false);
-        
+        setIsVerticalResizing(false);      
     }, []);
 
     useEffect(() => {

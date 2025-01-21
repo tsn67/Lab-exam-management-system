@@ -16,7 +16,7 @@ function Examnav() {
         <Timer expiryTimestamp={time} onExpireCallback={()=>{console.log('done')}} timeStart={true} />
       </div>
      
-      <Button label='finish exam' buttonClass={' text-textRed hover:text-red-400 bg-backgroundRed'}/>
+      <Button label='finish exam' buttonClass={' text-white w-[150px] hover:text-red-400 bg-red-900'}/>
 
     </div>
   )
