@@ -29,6 +29,14 @@ export const selectInputs = createSelector(
     }
 )
 
+export const selectOutputs = createSelector(
+    [questionData], 
+    (questionData) => {
+        if(!questionData) return [];
+        return questionData.testCases.output || [];
+    }
+)
+
 export const selectResult = createSelector(
     [questionData],
     (questionData) => {

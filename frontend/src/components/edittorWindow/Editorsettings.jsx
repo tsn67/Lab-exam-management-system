@@ -56,8 +56,8 @@ const Editorsettings = () => {
                     </motion.div>
                 </div>
 
-                {open && <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.2}} className='z-20  w-[100vw] backdrop-blur-[2px] absolute h-screen top-0 left-0 grid place-content-center'>
-                    <motion.div ref={settingsRef} initial={{opacity: 0, y: -30}} animate={{opacity: 1, y: 0}} transition={{delay: 0.2, duration: 0.1}} className=' opacity-100 flex rounded-md flex-row items-center w-[500px] min-h-[400px] bg-darkGray outline outline-1 outline-buttonGray'>
+                {open && <div   className='z-20  w-[100vw] backdrop-blur-[2px] absolute h-screen top-0 left-0 grid place-content-center'>
+                    <motion.div ref={settingsRef} initial={{scale: 0.6}} animate={{scale: 1}} transition={{duration: 0.1}} className=' opacity-100 flex rounded-md flex-row items-center w-[500px] min-h-[400px] bg-darkGray outline outline-1 outline-buttonGray'>
                         <div className='w-[40%] h-[100%] flex flex-col gap-[20px] items-center box-border p-[20px]'>
                             <Button  action={setSelected} param={'theme'} label={'theme'} buttonClass={classNames('bg-buttonGray text-white w-[160px] hover:bg-secondaryGray outline outline-1 outline-none ',{'bg-darkGray outline-buttonGray':selected=='theme'})}/>
                             <Button  action={setSelected} param={'font-family'} label={'font-family' } buttonClass={classNames('bg-buttonGray text-white w-[160px] hover:bg-secondaryGray outline outline-1 outline-none ',{'bg-darkGray outline-buttonGray':selected=='font-family'})}/>
@@ -93,7 +93,7 @@ const Editorsettings = () => {
                             </div>}
                         </div>
                     </motion.div>
-                </motion.div>}     
+                </div>}     
             </div>
         </>
     )
