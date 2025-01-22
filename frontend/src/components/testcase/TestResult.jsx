@@ -25,17 +25,21 @@ function TestResult() {
   const inputs = useSelector(selectInputs);
 
   const errorOccured = useCallback(() => {
-      
+    if(!results) return -1;
       for(let i = 0;i < results.stdErr.length;i++) {
-        if(!results) return -1;
         if(results.stdErr[i] != null) return i;
-        return -1;
       }
-      
+
+      let flag = 0;
+      for(let i = 0;i < results.stdOut.length;i++) {
+        if(results.stdOut[i] != null) {flag++;break;}
+      }
+      if(flag == 0) return 0;
+      return -1;
   }, [results]);
 
   function getItem(item, index) {
-    
+    if(item == null) return null;
     return <div className="bg-black items-center justify-evenly rounded-md p-3 w-full flex flex-row">
       <div>
         <p className={`${item.trim() == outputs[index]?"text-textGreen": "text-red-500"}`}>case {index+1}</p>
