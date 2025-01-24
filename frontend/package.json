@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite preview --port $PORT",
+    "start": "serve -s dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -29,7 +29,8 @@
     "react-monaco-editor": "^0.56.2",
     "react-redux": "^9.2.0",
     "react-timer-hook": "^3.0.8",
-    "reselect": "^5.1.1"
+    "reselect": "^5.1.1",
+    "serve": "^14.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
