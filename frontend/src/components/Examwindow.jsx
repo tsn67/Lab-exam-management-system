@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState, useCallback } from 'react';
 import QuestionBar from './QuestionBar';
 import Result_case from './testcase/Result_case';
-import Codeeditor from './edittorwindow/Codeeditor';
+import Codeeditor from './edittorWindow/Codeeditor';
 import Examnav from './examnav/Examnav';
 import { useDispatch } from 'react-redux';
 import { initialize } from '../features/examwindow/examSlice'
