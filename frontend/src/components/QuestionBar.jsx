@@ -7,7 +7,7 @@ import { setSelected } from '../features/examwindow/examSlice';
 const QuestionBar = ({ questionDetails }) => {
 
     const [currentQuestion, setCurrentQuestion] = useState(questionDetails[0])
- 
+    //test commit new
     function getQuestionItems() {
         var tempArr = [];
         questionDetails.map((item) => {
