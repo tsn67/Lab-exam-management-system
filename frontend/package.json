@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "NODE_OPTIONS=--openssl-legacy-provider vite build",
     "preview": "vite preview --port $PORT",
-    "lint": "eslint .",
+    "lint": "eslint ."
 
   },
   "dependencies": {
