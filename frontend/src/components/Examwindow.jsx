@@ -94,7 +94,7 @@ function Examwindow({timeStart}) {
     }, []);
 
 
-    }, []);
+   
 
 
 
